@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Logo Cap Bon Explorer">
+<circle cx="32" cy="32" r="30" fill="#fff8ea" stroke="#d9573a" stroke-width="3"/>
+<path d="M6 40 q9 -7 18 0 t18 0 t16 -2" stroke="#1f8fb0" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M10 48 q9 -7 18 0 t18 0 t14 -2" stroke="#0b4f6c" stroke-width="4" fill="none" stroke-linecap="round"/>
+<circle cx="32" cy="24" r="9" fill="#f2a93b"/>
+<polygon points="32,6 35,22 32,26 29,22" fill="#d9573a"/>
+</svg>

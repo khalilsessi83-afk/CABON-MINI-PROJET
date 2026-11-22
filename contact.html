@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Coordonnées fictives, horaires, carte du Cap Bon et foire aux questions de Cap Bon Explorer.">
+  <title>Contact / FAQ | Cap Bon Explorer</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <!-- Bootstrap 5.3 (CDN officiel) puis feuille de style personnelle -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="js/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+
+  <header id="entete">
+    <nav class="navbar navbar-expand-lg navbar-cb" aria-label="Navigation principale">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="images/logo.svg" alt="Logo Cap Bon Explorer" width="40" height="40">
+          <div>Cap Bon <span>Explorer</span></div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Afficher ou masquer le menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link" href="activites.html">Activités</a></li>
+            <li class="nav-item"><a class="nav-link" href="agenda.html">Agenda</a></li>
+            <li class="nav-item"><a class="nav-link" href="reservation.html">Réservation</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="contact.html">Contact / FAQ</a></li>
+            <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+              <button id="btn-theme" type="button" aria-pressed="false">Mode sombre</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenu">
+    <div class="page-titre">
+      <div class="container">
+        <h1>Contact et FAQ</h1>
+        <p>Une question avant de partir ? Retrouvez nos coordonnées, nos horaires et les réponses aux questions fréquentes.</p>
+      </div>
+    </div>
+
+    <section class="container py-5" aria-labelledby="titre-contact">
+      <div class="row g-4">
+        <div class="col-12 col-lg-6">
+          <h2 id="titre-contact" class="titre-section">Nous contacter</h2>
+          <address class="panneau mb-3">
+            <strong>Cap Bon Explorer (structure fictive)</strong><br>
+            12 avenue de la Corniche, 8000 Nabeul, Tunisie<br>
+            Téléphone : <a href="tel:+21672000000">+216 72 000 000</a><br>
+            E-mail : <a href="mailto:contact@capbon-explorer.example">contact@capbon-explorer.example</a>
+          </address>
+          <div class="panneau">
+            <h3 class="h5">Horaires d'accueil</h3>
+            <table class="table table-sm mb-0">
+              <caption class="visually-hidden">Horaires d'accueil</caption>
+              <thead><tr><th scope="col">Jour</th><th scope="col">Horaires</th></tr></thead>
+              <tbody>
+                <tr><td>Lundi &ndash; vendredi</td><td>08:30 &ndash; 17:30</td></tr>
+                <tr><td>Samedi</td><td>09:00 &ndash; 13:00</td></tr>
+                <tr><td>Dimanche</td><td>Fermé</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <figure class="panneau mb-0">
+            <img src="images/carte-cap-bon.jpg" class="img-fluid rounded-3" alt="Carte schématique de la presqu'île du Cap Bon avec Hammamet, Nabeul, Kélibia, Kerkouane et El Haouaria">
+            <figcaption class="small mt-2 text-secondary">Carte schématique (illustration, non à l'échelle).</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="container pb-5" aria-labelledby="titre-faq">
+      <h2 id="titre-faq" class="titre-section">Questions fréquentes</h2>
+      <div class="accordion" id="faq">
+        <div class="accordion-item">
+          <h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">Les réservations sont-elles réelles ?</button></h3>
+          <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faq"><div class="accordion-body">Non. Ce portail est une démonstration pédagogique : le simulateur calcule un montant et affiche un récapitulatif à l'écran, sans paiement ni envoi de données.</div></div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">Comment fonctionne la remise de groupe ?</button></h3>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Une remise de 10 % est appliquée automatiquement sur le sous-total dès que le groupe compte au moins 4 participants (maximum 6 par simulation).</div></div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">Que dois-je prévoir pour une activité en extérieur ?</button></h3>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Des chaussures confortables, de l'eau, un chapeau et de la crème solaire. Pour la randonnée et le circuit du littoral, prévoyez aussi un vêtement léger coupe-vent.</div></div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">Les activités conviennent-elles aux enfants ?</button></h3>
+          <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">La plupart des activités sont accessibles en famille : choisissez le type « Famille » dans le formulaire pour nous le signaler. La randonnée demande une bonne condition physique.</div></div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">Que se passe-t-il en cas de mauvais temps ?</button></h3>
+          <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Dans cet exemple fictif, une activité de plein air peut être reportée à une autre date de l'<a href="agenda.html">agenda</a> selon les conditions météo.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container pb-4" aria-labelledby="titre-form-contact">
+      <h2 id="titre-form-contact" class="titre-section">Nous écrire</h2>
+      <div class="row">
+        <div class="col-12 col-lg-8">
+          <form id="form-contact" class="panneau needs-validation" novalidate>
+            <div id="confirmation-contact" class="alert alert-success d-none" role="status">Message simulé : merci ! Dans cette démonstration, rien n'est envoyé.</div>
+            <div class="row g-3">
+              <div class="col-12 col-md-6">
+                <label for="c-nom" class="form-label">Nom *</label>
+                <input type="text" id="c-nom" class="form-control" required minlength="2">
+                <div class="invalid-feedback">Veuillez indiquer votre nom (2 caractères minimum).</div>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="c-email" class="form-label">E-mail *</label>
+                <input type="email" id="c-email" class="form-control" required>
+                <div class="invalid-feedback">Saisissez une adresse e-mail valide.</div>
+              </div>
+              <div class="col-12">
+                <label for="c-sujet" class="form-label">Sujet *</label>
+                <input type="text" id="c-sujet" class="form-control" required>
+                <div class="invalid-feedback">Veuillez indiquer un sujet.</div>
+              </div>
+              <div class="col-12">
+                <label for="c-message" class="form-label">Message *</label>
+                <textarea id="c-message" class="form-control" rows="4" required minlength="10"></textarea>
+                <div class="invalid-feedback">Votre message doit contenir au moins 10 caractères.</div>
+              </div>
+            </div>
+            <div class="mt-4 d-flex gap-2">
+              <button type="submit" class="btn btn-cb">Envoyer (simulation)</button>
+              <button type="reset" class="btn btn-outline-secondary">Effacer</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="pied" class="pt-5">
+    <div class="container">
+      <div class="row g-4 pb-4">
+        <div class="col-12 col-md-5">
+          <h2>Cap Bon Explorer</h2>
+          <p class="mb-2">Portail touristique fictif consacré au patrimoine, aux savoir-faire et aux paysages du Cap Bon.</p>
+          <a href="index.html">&larr; Retour à l'accueil</a>
+        </div>
+        <div class="col-6 col-md-3">
+          <h2>Navigation</h2>
+          <ul><li><a href="index.html">Accueil</a></li><li><a href="activites.html">Activités</a></li><li><a href="agenda.html">Agenda</a></li><li><a href="reservation.html">Réservation</a></li><li><a href="contact.html">Contact / FAQ</a></li></ul>
+        </div>
+        <div class="col-6 col-md-4">
+          <h2>Contact</h2>
+          <ul>
+            <li>12 avenue de la Corniche, 8000 Nabeul</li>
+            <li>+216 72 000 000</li>
+            <li>contact@capbon-explorer.example</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mention py-3 text-center">
+        &copy; 2026 Cap Bon Explorer &mdash; Projet pédagogique ISET Nabeul : données, tarifs et coordonnées fictifs.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

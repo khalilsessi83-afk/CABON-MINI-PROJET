@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Simulateur de réservation Cap Bon Explorer : choisissez une activité, le nombre de participants et obtenez le total en TND.">
+  <title>Réservation | Cap Bon Explorer</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <!-- Bootstrap 5.3 (CDN officiel) puis feuille de style personnelle -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="js/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+
+  <header id="entete">
+    <nav class="navbar navbar-expand-lg navbar-cb" aria-label="Navigation principale">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="images/logo.svg" alt="Logo Cap Bon Explorer" width="40" height="40">
+          <div>Cap Bon <span>Explorer</span></div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Afficher ou masquer le menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link" href="activites.html">Activités</a></li>
+            <li class="nav-item"><a class="nav-link" href="agenda.html">Agenda</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="reservation.html">Réservation</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact / FAQ</a></li>
+            <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+              <button id="btn-theme" type="button" aria-pressed="false">Mode sombre</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenu">
+    <div class="page-titre">
+      <div class="container">
+        <h1>Simulateur de réservation</h1>
+        <p>Renseignez le formulaire : le montant se met à jour automatiquement. Aucun paiement n'est effectué et aucune donnée n'est envoyée.</p>
+      </div>
+    </div>
+
+    <section class="container py-5">
+      <div class="row g-4">
+        <div class="col-12 col-lg-8">
+          <form id="form-reservation" class="panneau" novalidate aria-label="Formulaire de réservation">
+            <div id="alerte-erreurs" class="alert alert-danger d-none" role="alert" tabindex="-1"></div>
+            <div class="row g-3">
+              <div class="col-12 col-md-6">
+                <label for="nom" class="form-label">Nom *</label>
+                <input type="text" class="form-control" id="nom" name="nom" autocomplete="family-name" required>
+                <div class="invalid-feedback">Veuillez saisir votre nom.</div>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="prenom" class="form-label">Prénom *</label>
+                <input type="text" class="form-control" id="prenom" name="prenom" autocomplete="given-name" required>
+                <div class="invalid-feedback">Veuillez saisir votre prénom.</div>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="email" class="form-label">Adresse e-mail *</label>
+                <input type="email" class="form-control" id="email" name="email" autocomplete="email" placeholder="prenom.nom@exemple.com" required>
+                <div class="invalid-feedback">Saisissez une adresse e-mail valide (ex. nom@exemple.com).</div>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="telephone" class="form-label">Téléphone *</label>
+                <input type="tel" class="form-control" id="telephone" name="telephone" autocomplete="tel" placeholder="+216 20 123 456" required>
+                <div class="invalid-feedback">Saisissez un numéro de téléphone (au moins 8 chiffres).</div>
+              </div>
+              <div class="col-12">
+                <label for="activite" class="form-label">Activité choisie *</label>
+                <select class="form-select" id="activite" name="activite" required>
+                  <option value="">— Choisir une activité —</option>
+                </select>
+                <div class="invalid-feedback">Veuillez choisir une activité.</div>
+                <div class="form-text" id="info-prix-unitaire">Prix unitaire : — </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="date" class="form-label">Date souhaitée *</label>
+                <input type="date" class="form-control" id="date" name="date" required>
+                <div class="invalid-feedback" id="erreur-date">Choisissez une date à partir d'aujourd'hui.</div>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="participants" class="form-label">Nombre de participants (1 à 6) *</label>
+                <input type="number" class="form-control" id="participants" name="participants" min="1" max="6" step="1" value="1" required>
+                <div class="invalid-feedback">Le nombre de participants doit être compris entre 1 et 6.</div>
+                <div class="form-text">Remise de 10 % à partir de 4 personnes.</div>
+              </div>
+              <fieldset class="col-12">
+                <legend class="form-label fs-6">Type de participation *</legend>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="type" id="type-individuel" value="Individuel" required>
+                  <label class="form-check-label" for="type-individuel">Individuel</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="type" id="type-famille" value="Famille">
+                  <label class="form-check-label" for="type-famille">Famille</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="type" id="type-groupe" value="Groupe">
+                  <label class="form-check-label" for="type-groupe">Groupe</label>
+                </div>
+                <div class="text-danger small d-none mt-1" id="erreur-type">Veuillez choisir un type de participation.</div>
+              </fieldset>
+              <div class="col-12">
+                <label for="commentaire" class="form-label">Commentaire (facultatif)</label>
+                <textarea class="form-control" id="commentaire" name="commentaire" rows="3" placeholder="Allergies, besoins particuliers…"></textarea>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="conditions" name="conditions" required>
+                  <label class="form-check-label" for="conditions">J'accepte les conditions de simulation : aucune réservation réelle n'est effectuée. *</label>
+                  <div class="invalid-feedback">Vous devez accepter les conditions de simulation.</div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex flex-wrap gap-2 mt-4">
+              <button type="button" id="btn-calculer" class="btn btn-outline-cb">Calculer / Actualiser</button>
+              <button type="submit" class="btn btn-cb">Valider la simulation</button>
+              <button type="reset" id="btn-reset" class="btn btn-outline-secondary">Réinitialiser</button>
+            </div>
+          </form>
+        </div>
+
+        <aside class="col-12 col-lg-4" aria-label="Détail du prix">
+          <div class="panneau panneau-prix" aria-live="polite">
+            <h2 class="h5 mb-3">Détail du prix</h2>
+            <div class="ligne-prix"><span>Prix unitaire</span><span id="prix-unitaire">0,00 TND</span></div>
+            <div class="ligne-prix"><span>Participants</span><span id="prix-participants">0</span></div>
+            <div class="ligne-prix"><span>Sous-total</span><span id="prix-soustotal">0,00 TND</span></div>
+            <div class="ligne-prix remise"><span>Remise (10 %)</span><span id="prix-remise">0,00 TND</span></div>
+            <div class="ligne-prix total"><span>Total final</span><span id="prix-total">0,00 TND</span></div>
+          </div>
+        </aside>
+      </div>
+
+      <section id="recapitulatif" class="panneau mt-4 d-none" aria-labelledby="titre-recap" tabindex="-1">
+        <h2 id="titre-recap" class="h4">Récapitulatif de votre simulation</h2>
+        <dl class="row recap-liste mb-3">
+          <dt class="col-sm-4">Participant</dt><dd class="col-sm-8" id="recap-nom"></dd>
+          <dt class="col-sm-4">Activité</dt><dd class="col-sm-8" id="recap-activite"></dd>
+          <dt class="col-sm-4">Date</dt><dd class="col-sm-8" id="recap-date"></dd>
+          <dt class="col-sm-4">Participants</dt><dd class="col-sm-8" id="recap-participants"></dd>
+          <dt class="col-sm-4">Total</dt><dd class="col-sm-8 fw-bold fs-5" id="recap-total"></dd>
+        </dl>
+        <div class="alert alert-success mb-0" role="status">Simulation enregistrée localement à l'écran : aucune réservation réelle n'a été effectuée.</div>
+      </section>
+    </section>
+  </main>
+
+  <footer id="pied" class="pt-5">
+    <div class="container">
+      <div class="row g-4 pb-4">
+        <div class="col-12 col-md-5">
+          <h2>Cap Bon Explorer</h2>
+          <p class="mb-2">Portail touristique fictif consacré au patrimoine, aux savoir-faire et aux paysages du Cap Bon.</p>
+          <a href="index.html">&larr; Retour à l'accueil</a>
+        </div>
+        <div class="col-6 col-md-3">
+          <h2>Navigation</h2>
+          <ul><li><a href="index.html">Accueil</a></li><li><a href="activites.html">Activités</a></li><li><a href="agenda.html">Agenda</a></li><li><a href="reservation.html">Réservation</a></li><li><a href="contact.html">Contact / FAQ</a></li></ul>
+        </div>
+        <div class="col-6 col-md-4">
+          <h2>Contact</h2>
+          <ul>
+            <li>12 avenue de la Corniche, 8000 Nabeul</li>
+            <li>+216 72 000 000</li>
+            <li>contact@capbon-explorer.example</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mention py-3 text-center">
+        &copy; 2026 Cap Bon Explorer &mdash; Projet pédagogique ISET Nabeul : données, tarifs et coordonnées fictifs.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/reservation.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Agenda des prochaines expériences Cap Bon Explorer : dates, horaires, lieux et tarifs.">
+  <title>Agenda | Cap Bon Explorer</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <!-- Bootstrap 5.3 (CDN officiel) puis feuille de style personnelle -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="js/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+
+  <header id="entete">
+    <nav class="navbar navbar-expand-lg navbar-cb" aria-label="Navigation principale">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="images/logo.svg" alt="Logo Cap Bon Explorer" width="40" height="40">
+          <div>Cap Bon <span>Explorer</span></div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Afficher ou masquer le menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link" href="activites.html">Activités</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="agenda.html">Agenda</a></li>
+            <li class="nav-item"><a class="nav-link" href="reservation.html">Réservation</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact / FAQ</a></li>
+            <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+              <button id="btn-theme" type="button" aria-pressed="false">Mode sombre</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenu">
+    <div class="page-titre">
+      <div class="container">
+        <h1>Agenda des événements</h1>
+        <p>Six rendez-vous sont programmés cet hiver. Repérez la date qui vous convient puis lancez la simulation de réservation.</p>
+      </div>
+    </div>
+
+    <section class="container py-5" aria-labelledby="titre-agenda">
+      <h2 id="titre-agenda" class="visually-hidden">Tableau des événements</h2>
+      <p class="mb-4">Les dates ci-dessous sont indicatives (projet pédagogique). Les tarifs correspondent au prix par personne affiché dans le catalogue.</p>
+      <div class="row g-4">
+        <div class="col-12 col-xl-9">
+          <div class="table-responsive panneau p-2 p-md-3">
+            <table class="table table-striped table-hover table-agenda align-middle mb-0">
+              <caption>Calendrier des expériences, décembre 2026 &ndash; janvier 2027</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Activité</th>
+                  <th scope="col">Heure</th>
+                  <th scope="col">Lieu</th>
+                  <th scope="col">Tarif</th>
+                  <th scope="col">Réserver</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row"><time datetime="2026-12-05">05/12/2026</time></th>
+                  <td>Promenade photographique</td>
+                  <td>09:30</td>
+                  <td>Hammamet</td>
+                  <td>30 TND</td>
+                  <td><a class="btn btn-sm btn-outline-cb" href="reservation.html?activite=A08&amp;date=2026-12-05">Réserver</a></td>
+                </tr>
+                <tr>
+                  <th scope="row"><time datetime="2026-12-12">12/12/2026</time></th>
+                  <td>Initiation à la poterie</td>
+                  <td>10:00</td>
+                  <td>Nabeul</td>
+                  <td>35 TND</td>
+                  <td><a class="btn btn-sm btn-outline-cb" href="reservation.html?activite=A02&amp;date=2026-12-12">Réserver</a></td>
+                </tr>
+                <tr>
+                  <th scope="row"><time datetime="2026-12-19">19/12/2026</time></th>
+                  <td>Randonnée découverte</td>
+                  <td>08:30</td>
+                  <td>Cap Bon</td>
+                  <td>25 TND</td>
+                  <td><a class="btn btn-sm btn-outline-cb" href="reservation.html?activite=A04&amp;date=2026-12-19">Réserver</a></td>
+                </tr>
+                <tr>
+                  <th scope="row"><time datetime="2027-01-09">09/01/2027</time></th>
+                  <td>Découverte de la médina</td>
+                  <td>10:00</td>
+                  <td>Nabeul</td>
+                  <td>20 TND</td>
+                  <td><a class="btn btn-sm btn-outline-cb" href="reservation.html?activite=A01&amp;date=2027-01-09">Réserver</a></td>
+                </tr>
+                <tr>
+                  <th scope="row"><time datetime="2027-01-16">16/01/2027</time></th>
+                  <td>Peinture sur céramique</td>
+                  <td>14:00</td>
+                  <td>Nabeul</td>
+                  <td>25 TND</td>
+                  <td><a class="btn btn-sm btn-outline-cb" href="reservation.html?activite=A06&amp;date=2027-01-16">Réserver</a></td>
+                </tr>
+                <tr>
+                  <th scope="row"><time datetime="2027-01-23">23/01/2027</time></th>
+                  <td>Découverte du marché local</td>
+                  <td>09:00</td>
+                  <td>Nabeul</td>
+                  <td>15 TND</td>
+                  <td><a class="btn btn-sm btn-outline-cb" href="reservation.html?activite=A07&amp;date=2027-01-23">Réserver</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <aside class="col-12 col-xl-3">
+          <div class="panneau h-100">
+            <h2 class="h5">Prochaines expériences</h2>
+            <p>Besoin d'inspiration avant de choisir ?</p>
+            <ul class="mb-0">
+              <li><a href="activites.html">Parcourir les 8 activités</a></li>
+              <li><a href="reservation.html">Simuler une réservation</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer id="pied" class="pt-5">
+    <div class="container">
+      <div class="row g-4 pb-4">
+        <div class="col-12 col-md-5">
+          <h2>Cap Bon Explorer</h2>
+          <p class="mb-2">Portail touristique fictif consacré au patrimoine, aux savoir-faire et aux paysages du Cap Bon.</p>
+          <a href="index.html">&larr; Retour à l'accueil</a>
+        </div>
+        <div class="col-6 col-md-3">
+          <h2>Navigation</h2>
+          <ul><li><a href="index.html">Accueil</a></li><li><a href="activites.html">Activités</a></li><li><a href="agenda.html">Agenda</a></li><li><a href="reservation.html">Réservation</a></li><li><a href="contact.html">Contact / FAQ</a></li></ul>
+        </div>
+        <div class="col-6 col-md-4">
+          <h2>Contact</h2>
+          <ul>
+            <li>12 avenue de la Corniche, 8000 Nabeul</li>
+            <li>+216 72 000 000</li>
+            <li>contact@capbon-explorer.example</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mention py-3 text-center">
+        &copy; 2026 Cap Bon Explorer &mdash; Projet pédagogique ISET Nabeul : données, tarifs et coordonnées fictifs.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

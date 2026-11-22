@@ -1,0 +1,202 @@
+/* ==========================================================
+   Cap Bon Explorer — feuille de style personnelle
+   (se charge APRÈS Bootstrap pour le personnaliser)
+   ========================================================== */
+
+/* ---------- 1. Palette et variables ---------- */
+:root {
+  --cb-bleu: #0b4f6c;
+  --cb-bleu-clair: #1f8fb0;
+  --cb-terracotta: #d9573a;
+  --cb-terracotta-fonce: #b94328;
+  --cb-sable: #f7efe0;
+  --cb-ocre: #f2a93b;
+  --cb-encre: #1d2b36;
+  --cb-rayon: 16px;
+  --cb-ombre: 0 6px 18px rgba(11, 79, 108, .12);
+  --cb-ombre-forte: 0 14px 32px rgba(11, 79, 108, .22);
+  --bs-heading-color: var(--cb-bleu);
+  --bs-primary: var(--cb-bleu);
+  --bs-primary-rgb: 11, 79, 108;
+  --bs-link-color: var(--cb-bleu);
+  --bs-link-hover-color: var(--cb-terracotta-fonce);
+  --bs-link-color-rgb: 11, 79, 108;
+  --bs-link-hover-color-rgb: 185, 67, 40;
+}
+
+/* ---------- 2. Base : balises ---------- */
+body {
+  font-family: "Segoe UI", "Open Sans", Inter, system-ui, -apple-system, Roboto, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--cb-encre);
+  background-color: var(--cb-sable);
+}
+h1, h2, h3, h4, h5 {
+  font-family: Georgia, Gelasio, "Times New Roman", serif;
+  font-weight: 700;
+  color: var(--cb-bleu);
+  line-height: 1.25;
+}
+a { text-underline-offset: 3px; }
+img { max-width: 100%; }
+main { min-height: 60vh; }
+section { scroll-margin-top: 90px; }
+
+/* lien d'évitement (accessibilité) */
+.skip-link {
+  position: absolute; left: -999px; top: 8px; z-index: 2000;
+  background: var(--cb-terracotta); color: #fff; padding: .5rem 1rem; border-radius: 8px;
+}
+.skip-link:focus { left: 8px; color: #fff; }
+
+/* ---------- 3. En-tête et navbar (id + classes) ---------- */
+#entete { box-shadow: 0 2px 12px rgba(0, 0, 0, .18); position: sticky; top: 0; z-index: 1030; }
+.navbar-cb { background: linear-gradient(90deg, var(--cb-bleu), #0a6a8c); }
+.navbar-cb .navbar-brand {
+  font-family: Georgia, Gelasio, serif; font-weight: 700; color: #fff; letter-spacing: .3px;
+}
+.navbar-cb .navbar-brand img { width: 40px; height: 40px; margin-right: .5rem; }
+.navbar-cb .navbar-brand span { color: var(--cb-ocre); }
+.navbar-cb .nav-link {
+  color: rgba(255, 255, 255, .85); font-weight: 500; border-radius: 999px;
+  padding: .45rem 1rem !important; margin: 0 .1rem;
+  transition: background-color .25s ease, color .25s ease, transform .25s ease;
+}
+.navbar-cb .nav-link:hover, .navbar-cb .nav-link:focus { background: rgba(255, 255, 255, .16); color: #fff; transform: translateY(-1px); }
+.navbar-cb .nav-link.active { background: var(--cb-terracotta); color: #fff; box-shadow: 0 3px 10px rgba(0, 0, 0, .25); }
+.navbar-cb .navbar-toggler { border-color: rgba(255, 255, 255, .6); }
+.navbar-cb .navbar-toggler-icon { filter: invert(1); }
+#btn-theme { border-radius: 999px; border: 1px solid rgba(255, 255, 255, .55); color: #fff; background: transparent; padding: .3rem .9rem; font-size: .9rem; transition: background-color .25s ease; }
+#btn-theme:hover, #btn-theme:focus { background: rgba(255, 255, 255, .2); color: #fff; }
+
+/* ---------- 4. Boutons personnalisés ---------- */
+.btn-cb {
+  --bs-btn-color: #fff; --bs-btn-bg: var(--cb-terracotta); --bs-btn-border-color: var(--cb-terracotta);
+  --bs-btn-hover-color: #fff; --bs-btn-hover-bg: var(--cb-terracotta-fonce); --bs-btn-hover-border-color: var(--cb-terracotta-fonce);
+  --bs-btn-active-bg: var(--cb-terracotta-fonce); --bs-btn-active-border-color: var(--cb-terracotta-fonce); --bs-btn-active-color: #fff;
+  --bs-btn-focus-shadow-rgb: 217, 87, 58;
+  border-radius: 999px; font-weight: 600; padding: .55rem 1.5rem;
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+.btn-cb:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(217, 87, 58, .4); }
+.btn-outline-cb {
+  --bs-btn-color: var(--cb-bleu); --bs-btn-border-color: var(--cb-bleu);
+  --bs-btn-hover-color: #fff; --bs-btn-hover-bg: var(--cb-bleu); --bs-btn-hover-border-color: var(--cb-bleu);
+  --bs-btn-active-bg: var(--cb-bleu); --bs-btn-active-color: #fff; --bs-btn-active-border-color: var(--cb-bleu);
+  border-radius: 999px; font-weight: 600; transition: transform .2s ease, box-shadow .2s ease;
+}
+.btn-outline-cb:hover { transform: translateY(-2px); box-shadow: var(--cb-ombre); }
+.btn-filtre { border-radius: 999px !important; }
+.btn-check:checked + .btn-outline-cb { background: var(--cb-bleu); color: #fff; }
+:focus-visible { outline: 3px solid var(--cb-ocre); outline-offset: 2px; }
+
+/* ---------- 5. Bannière (hero) ---------- */
+.hero {
+  position: relative; color: #fff; text-align: left;
+  background: linear-gradient(100deg, rgba(8, 40, 62, .88) 0%, rgba(8, 40, 62, .45) 55%, rgba(8, 40, 62, .1) 100%),
+              url("../images/banniere.jpg") center / cover no-repeat;
+  padding: 7rem 0 6.5rem;
+}
+.hero h1 { color: #fff; font-size: clamp(2.1rem, 5vw, 3.6rem); text-shadow: 0 2px 12px rgba(0, 0, 0, .4); }
+.hero .lead { max-width: 560px; font-size: 1.2rem; text-shadow: 0 1px 8px rgba(0, 0, 0, .5); }
+.hero .badge-hero { display: inline-block; background: var(--cb-ocre); color: var(--cb-encre); font-weight: 700; border-radius: 999px; padding: .3rem .9rem; font-size: .85rem; margin-bottom: 1rem; }
+.page-titre { background: linear-gradient(100deg, var(--cb-bleu), var(--cb-bleu-clair)); color: #fff; padding: 2.6rem 0; position: relative; overflow: hidden; }
+.page-titre::after { content: ""; position: absolute; right: -60px; top: -60px; width: 220px; height: 220px; border-radius: 50%; background: rgba(242, 169, 59, .35); }
+.page-titre h1 { color: #fff; margin: 0 0 .3rem; }
+.page-titre p { margin: 0; max-width: 680px; opacity: .92; }
+
+/* ---------- 6. Titres de section ---------- */
+.titre-section { position: relative; display: inline-block; padding-bottom: .5rem; margin-bottom: 1.5rem; }
+.titre-section::after { content: ""; position: absolute; left: 0; bottom: 0; width: 60%; height: 4px; border-radius: 4px; background: var(--cb-terracotta); }
+
+/* ---------- 7. Cartes d'activités ---------- */
+.activity-card {
+  border: 0; border-radius: var(--cb-rayon); overflow: hidden; background: #fff;
+  box-shadow: var(--cb-ombre);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.activity-card:hover { transform: translateY(-8px); box-shadow: var(--cb-ombre-forte); }
+.activity-card .vignette { overflow: hidden; position: relative; }
+.activity-card .card-img-top { aspect-ratio: 16 / 10; object-fit: cover; transition: transform .5s ease; }
+.activity-card:hover .card-img-top { transform: scale(1.07); }
+.activity-card .card-title { font-size: 1.15rem; margin-bottom: .25rem; }
+.activity-card .lieu { color: #5b6b78; font-size: .9rem; }
+.activity-card .accroche { font-size: .95rem; }
+.badge-cat { position: absolute; top: .8rem; left: .8rem; font-size: .78rem; letter-spacing: .3px; padding: .4rem .75rem; border-radius: 999px; color: #fff; }
+.cat-Culture { background: #7a4fb0; }
+.cat-Artisanat { background: var(--cb-terracotta); }
+.cat-Nature { background: #2e8b57; }
+.cat-Découverte { background: var(--cb-bleu-clair); }
+.prix { font-weight: 800; color: var(--cb-terracotta-fonce); font-size: 1.15rem; }
+.prix small { font-weight: 500; color: #5b6b78; }
+
+/* ---------- 8. Blocs divers (classes) ---------- */
+.atout { background: #fff; border-radius: var(--cb-rayon); padding: 1.25rem 1.4rem; box-shadow: var(--cb-ombre); height: 100%; border-left: 6px solid var(--cb-ocre); transition: transform .25s ease; }
+.atout:hover { transform: translateX(6px); }
+.atout h3 { font-size: 1.1rem; margin-bottom: .3rem; }
+.bloc-cta { background: linear-gradient(120deg, var(--cb-terracotta), #e98a3a); color: #fff; border-radius: calc(var(--cb-rayon) * 1.4); padding: 3rem 1.5rem; box-shadow: var(--cb-ombre-forte); }
+.bloc-cta h2 { color: #fff; }
+.bloc-cta .btn { background: #fff; color: var(--cb-terracotta-fonce); border: 0; }
+.bloc-cta .btn:hover { background: var(--cb-bleu); color: #fff; }
+.panneau { background: #fff; border-radius: var(--cb-rayon); box-shadow: var(--cb-ombre); padding: 1.5rem; }
+.panneau-prix { border-top: 6px solid var(--cb-ocre); position: sticky; top: 100px; }
+.ligne-prix { display: flex; justify-content: space-between; padding: .45rem 0; border-bottom: 1px dashed #d8d2c4; }
+.ligne-prix.total { border-bottom: 0; font-size: 1.35rem; font-weight: 800; color: var(--cb-bleu); padding-top: .8rem; }
+.ligne-prix.remise span:last-child { color: #1e8e4e; font-weight: 700; }
+
+/* ---------- 9. Agenda (tableau) ---------- */
+.table-agenda caption { caption-side: top; font-weight: 700; color: var(--cb-bleu); font-family: Georgia, Gelasio, serif; font-size: 1.15rem; padding-left: .25rem; }
+.table-agenda thead th { background: var(--cb-bleu); color: #fff; border-color: var(--cb-bleu); white-space: nowrap; }
+.table-agenda tbody tr { transition: background-color .2s ease; }
+.table-agenda tbody tr:hover > * { background-color: rgba(242, 169, 59, .22); }
+.table-agenda td, .table-agenda th { vertical-align: middle; }
+
+/* ---------- 10. Formulaires et accordéon ---------- */
+.form-control:focus, .form-select:focus, .form-check-input:focus { border-color: var(--cb-bleu-clair); box-shadow: 0 0 0 .25rem rgba(31, 143, 176, .25); }
+.form-check-input:checked { background-color: var(--cb-bleu); border-color: var(--cb-bleu); }
+.form-label { font-weight: 600; }
+.accordion-button:not(.collapsed) { background: rgba(31, 143, 176, .12); color: var(--cb-bleu); }
+.accordion-button:focus { box-shadow: 0 0 0 .25rem rgba(31, 143, 176, .25); }
+.modal-content { border: 0; border-radius: var(--cb-rayon); overflow: hidden; }
+.modal-header { background: var(--cb-bleu); color: #fff; }
+.modal-header .modal-title { color: #fff; }
+.modal-header .btn-close { filter: invert(1); }
+.recap-liste dt { color: #5b6b78; font-weight: 600; }
+
+/* ---------- 11. Pied de page ---------- */
+#pied { background: #08283e; color: rgba(255, 255, 255, .8); margin-top: 4rem; border-top: 6px solid var(--cb-terracotta); }
+#pied h2 { color: var(--cb-ocre); font-size: 1.1rem; }
+#pied a { color: rgba(255, 255, 255, .85); text-decoration: none; transition: color .2s ease, padding-left .2s ease; }
+#pied a:hover, #pied a:focus { color: var(--cb-ocre); padding-left: 4px; }
+#pied ul { list-style: none; padding: 0; margin: 0; }
+#pied .mention { border-top: 1px solid rgba(255, 255, 255, .15); font-size: .88rem; }
+
+/* ---------- 12. Mode sombre (bonus, via Bootstrap data-bs-theme) ---------- */
+[data-bs-theme="dark"] { --bs-heading-color: #8fd3ea; }
+[data-bs-theme="dark"] body { background-color: #10202b; color: #e6edf2; }
+[data-bs-theme="dark"] h1, [data-bs-theme="dark"] h2, [data-bs-theme="dark"] h3, [data-bs-theme="dark"] h4 { color: #8fd3ea; }
+[data-bs-theme="dark"] .activity-card, [data-bs-theme="dark"] .panneau, [data-bs-theme="dark"] .atout { background: #1a2f3d; color: #e6edf2; }
+[data-bs-theme="dark"] .activity-card .lieu, [data-bs-theme="dark"] .prix small { color: #a9bac6; }
+[data-bs-theme="dark"] .prix { color: #ff9a7e; }
+[data-bs-theme="dark"] .ligne-prix.total { color: #8fd3ea; }
+[data-bs-theme="dark"] .page-titre h1 { color: #fff; }
+[data-bs-theme="dark"] .table-agenda tbody tr:hover > * { background-color: rgba(242, 169, 59, .18); }
+[data-bs-theme="dark"] .btn-outline-cb { --bs-btn-color: #8fd3ea; --bs-btn-border-color: #8fd3ea; --bs-btn-hover-bg: #8fd3ea; --bs-btn-hover-color: #08283e; }
+[data-bs-theme="dark"] a:not(.btn):not(.nav-link) { color: #8fd3ea; }
+
+/* ---------- 13. Responsive (@media) ---------- */
+@media (max-width: 767.98px) {
+  .hero { padding: 4.5rem 0 4rem; text-align: center; background-position: 62% center; }
+  .hero .lead { margin-left: auto; margin-right: auto; font-size: 1.05rem; }
+  .page-titre { padding: 2rem 0; }
+  .panneau-prix { position: static; }
+  .navbar-cb .nav-link { padding: .6rem 1rem !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* corrections de superposition */
+.page-titre .container { position: relative; z-index: 1; }
+.btn-group.flex-wrap > .btn-filtre { margin-left: 0 !important; margin-right: .35rem; margin-bottom: .35rem; }
