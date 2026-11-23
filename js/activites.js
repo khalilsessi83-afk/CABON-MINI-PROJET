@@ -1,5 +1,3 @@
-
-
 const conteneur = document.getElementById("liste-activites");
 const champRecherche = document.getElementById("recherche");
 const groupeFiltres = document.getElementById("filtres-categories");
@@ -11,12 +9,10 @@ const modalElement = document.getElementById("modalActivite");
 
 let categorieActive = "Toutes";
 
-/* Retire les accents et la casse pour une recherche tolérante */
 function normaliser(texte) {
   return texte.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
 }
 
-/* Fabrique le code HTML d'une carte */
 function creerCarte(a) {
   return `
     <div class="col-12 col-md-6 col-lg-4 col-xl-3" data-id="${a.id}">
@@ -40,7 +36,6 @@ function creerCarte(a) {
     </div>`;
 }
 
-/* Renvoie les activités qui respectent le filtre ET la recherche */
 function filtrerActivites() {
   const motCle = normaliser(champRecherche.value);
   const resultat = [];
@@ -56,7 +51,6 @@ function filtrerActivites() {
   return resultat;
 }
 
-/* Trie une copie du tableau selon le choix de l'utilisateur */
 function trierActivites(liste) {
   const copie = liste.slice();
   if (selectTri.value === "prix-asc") {
@@ -67,7 +61,6 @@ function trierActivites(liste) {
   return copie;
 }
 
-/* Met à jour l'écran : cartes, compteur et message « Aucune activité » */
 function afficher() {
   const liste = trierActivites(filtrerActivites());
   let html = "";
@@ -82,7 +75,6 @@ function afficher() {
   messageVide.classList.toggle("d-none", n !== 0);
 }
 
-/* ---- Événements ---- */
 champRecherche.addEventListener("input", afficher);
 selectTri.addEventListener("change", afficher);
 
@@ -102,11 +94,10 @@ groupeFiltres.addEventListener("click", function (event) {
 boutonEffacer.addEventListener("click", function () {
   champRecherche.value = "";
   selectTri.value = "defaut";
-  groupeFiltres.querySelector('[data-categorie="Toutes"]').click(); // réutilise le filtre « Toutes »
+  groupeFiltres.querySelector('[data-categorie="Toutes"]').click();
   champRecherche.focus();
 });
 
-/* ---- Modale : le contenu dépend du bouton qui l'a ouverte ---- */
 modalElement.addEventListener("show.bs.modal", function (event) {
   const declencheur = event.relatedTarget;
   const a = trouverActivite(declencheur.dataset.id);
@@ -126,5 +117,4 @@ modalElement.addEventListener("show.bs.modal", function (event) {
   document.getElementById("modalReserver").href = "reservation.html?activite=" + a.id;
 });
 
-/* Affichage initial */
 afficher();

@@ -1,4 +1,3 @@
-
 const SEUIL_REMISE = 4;
 const TAUX_REMISE = 0.10;
 const MIN_PARTICIPANTS = 1;
@@ -20,12 +19,11 @@ const erreurType = document.getElementById("erreur-type");
 const erreurDate = document.getElementById("erreur-date");
 const recap = document.getElementById("recapitulatif");
 
-/* ---------- Utilitaires ---------- */
 function dateDuJour() {
   const d = new Date();
   const mois = String(d.getMonth() + 1).padStart(2, "0");
   const jour = String(d.getDate()).padStart(2, "0");
-  return d.getFullYear() + "-" + mois + "-" + jour; // format AAAA-MM-JJ comme <input type="date">
+  return d.getFullYear() + "-" + mois + "-" + jour;
 }
 
 function formaterDate(iso) {
@@ -42,7 +40,6 @@ function telephoneValide(valeur) {
   return valeur.trim() !== "" && chiffres.length >= 8 && /^[+\d\s().-]+$/.test(valeur.trim());
 }
 
-/* ---------- Calcul du prix ---------- */
 function calculerPrix(prixUnitaire, participants) {
   const sousTotal = prixUnitaire * participants;
   const remise = participants >= SEUIL_REMISE ? sousTotal * TAUX_REMISE : 0;
@@ -70,7 +67,6 @@ function actualiserPrix() {
   return montants;
 }
 
-/* ---------- Validation ---------- */
 function marquer(champ, valide) {
   champ.classList.toggle("is-invalid", !valide);
   champ.classList.toggle("is-valid", valide);
@@ -99,7 +95,7 @@ function valider() {
   marquer(champs.activite, actOk);
   if (!actOk) { erreurs.push("Choisissez une activité."); }
 
-  // Date : obligatoire et non passée
+
   const dateSaisie = champs.date.value;
   let dateOk = true;
   if (dateSaisie === "") {
@@ -151,7 +147,6 @@ function afficherRecap(montants) {
   recap.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
-/* ---------- Initialisation ---------- */
 function remplirListeActivites() {
   for (const a of ACTIVITES) {
     const option = document.createElement("option");
@@ -174,13 +169,12 @@ champs.date.min = dateDuJour();
 lireParametresUrl();
 actualiserPrix();
 
-/* ---------- Événements ---------- */
 champs.activite.addEventListener("change", actualiserPrix);
 champs.participants.addEventListener("input", actualiserPrix);
 document.getElementById("btn-calculer").addEventListener("click", actualiserPrix);
 
 form.addEventListener("submit", function (event) {
-  event.preventDefault();                 // aucune donnée n'est envoyée
+  event.preventDefault();
   const erreurs = valider();
   if (erreurs.length > 0) {
     afficherErreurs(erreurs);
@@ -191,7 +185,7 @@ form.addEventListener("submit", function (event) {
 });
 
 form.addEventListener("reset", function () {
-  // les valeurs sont remises à zéro par le navigateur APRÈS cet événement
+
   setTimeout(function () {
     form.querySelectorAll(".is-valid, .is-invalid").forEach(function (el) {
       el.classList.remove("is-valid", "is-invalid");

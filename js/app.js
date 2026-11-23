@@ -1,13 +1,10 @@
-
-
-/* ---- Thème : appliqué tout de suite pour éviter un clignotement ---- */
 const CLE_THEME = "capbon-theme";
 
 function lireTheme() {
   try {
     return localStorage.getItem(CLE_THEME) === "dark" ? "dark" : "light";
   } catch (e) {
-    return "light"; // localStorage indisponible : thème clair par défaut
+    return "light";
   }
 }
 
@@ -31,20 +28,19 @@ document.addEventListener("DOMContentLoaded", function () {
       const nouveau = lireTheme() === "dark" ? "light" : "dark";
       try {
         localStorage.setItem(CLE_THEME, nouveau);
-      } catch (e) { /* ignoré */ }
+      } catch (e) { }
       appliquerTheme(nouveau);
     });
   }
 
-  /* ---- Formulaire de contact (page contact.html uniquement) ---- */
   const formContact = document.getElementById("form-contact");
   if (formContact) {
     const confirmation = document.getElementById("confirmation-contact");
 
     formContact.addEventListener("submit", function (event) {
-      event.preventDefault();               // rien n'est envoyé
+      event.preventDefault();
       confirmation.classList.add("d-none");
-      if (!formContact.checkValidity()) {   // validation HTML5
+      if (!formContact.checkValidity()) {
         formContact.classList.add("was-validated");
         return;
       }
